@@ -4,10 +4,9 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    minifycss = require('gulp-minify-css'),
     browserSync = require('browser-sync').create();
 
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     gulp.src('css/*.scss')
         .pipe(plumber())
         .pipe(sass())
@@ -21,12 +20,12 @@ gulp.task('sass', function() {
         .pipe(browserSync.stream());
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch('css/*.scss', ['sass']);
     gulp.watch('*.html').on('change', browserSync.reload);
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync.init({
         notify: false,
         server: {

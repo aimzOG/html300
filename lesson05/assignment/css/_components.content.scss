@@ -8,6 +8,83 @@ html {
     box-sizing: inherit;
 }
 
-.main {
-    padding: 2rem;
+body {
+    color: black;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'header'
+        'main'
+        'sidebar'
+        'footer';
+
+    header {
+        grid-area: header;
+
+        .heading {
+            background-color: red;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0;
+    }
+
+    .nav {
+        background-color: orange;
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            margin: 0;
+            padding: .5em 0;
+        }
+    }
+
+    .sidebar {
+        background-color: lime;
+        grid-area: sidebar;
+    }
+
+    .main {
+        background-color: skyblue;
+        grid-area: main;
+    }
+
+    footer {
+        background-color: purple;
+        grid-area: footer;
+    }
+
+    @include media-query (tab) {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: 'header header header header header'
+            'sidebar sidebar main main main'
+            'footer footer footer footer footer';
+    }
+}
+
+.heading,
+.sidebar,
+.main,
+footer {
+    padding: .5em 2em;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
+    &:visited {
+        color: inherit;
+    }
 }

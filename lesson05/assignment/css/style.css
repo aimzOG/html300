@@ -365,33 +365,28 @@ body {
   color: black; }
 
 .container {
+  background-image: url(../img/cutting-board-background-2065305_1920.jpg);
+  background-size: cover;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
-  grid-template-areas: 'header' 'main' 'sidebar' 'footer'; }
+  grid-template-areas: 'header' 'sidebar' 'main' 'footer'; }
   .container header {
     grid-area: header; }
-    .container header .heading {
-      background-color: red; }
   .container h1 {
     text-align: center;
     margin: 0; }
-  .container .nav {
-    background-color: orange; }
-    .container .nav ul {
-      display: flex;
-      justify-content: space-around;
-      align-content: center;
-      margin: 0;
-      padding: .5em 0; }
+  .container .nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    margin: 0;
+    padding: .5em 0; }
   .container .sidebar {
-    background-color: lime;
     grid-area: sidebar; }
   .container .main {
-    background-color: skyblue;
     grid-area: main; }
   .container footer {
-    background-color: purple;
     grid-area: footer; }
   @media screen and (min-width: 768px) {
     .container {
@@ -412,3 +407,14 @@ a {
   text-decoration: none; }
   a:visited {
     color: inherit; }
+
+.item-img {
+  width: 100%;
+  box-shadow: 0px 2px 20px black;
+  border-radius: 5%;
+  border: 2px solid black; }
+
+header,
+footer {
+  color: white;
+  background-color: #0F3858; }

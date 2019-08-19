@@ -3,7 +3,7 @@
   <div class="gallery">
     <div class="gallery-panel" v-for="photo in photos" :key="photo.id">
       <!-- supposed ot allow user to see full size image. BROKEN-->
-      <router-link :to="`/photo/${photo.id}`">
+      <router-link :to="`/noms/${photo.id}`">
         <img :src="thumbUrl(photo.filename)" />
       </router-link>
     </div>

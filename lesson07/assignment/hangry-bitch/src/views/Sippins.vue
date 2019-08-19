@@ -10,7 +10,7 @@
 import Gallery from "@/components/Gallery.vue";
 import Photo from "@/components/Photo.vue";
 export default {
-  name: "Sippins",
+  name: "photo",
   components: {
     Gallery,
     Photo

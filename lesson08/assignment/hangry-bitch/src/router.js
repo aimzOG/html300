@@ -30,5 +30,10 @@ export default new Router({
       name: 'sippin&#39;s',
       component: () => import(/* webpackChunkName: "sippins" */ './views/Sippins.vue')
     },
+    {
+      path: '/images/:id',
+      name: 'images',
+      component: () => import(/* webpackChunkName: "sippins" */ './views/Images.vue')
+    },
   ]
 })

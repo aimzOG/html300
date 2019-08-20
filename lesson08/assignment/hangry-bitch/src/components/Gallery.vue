@@ -1,35 +1,31 @@
-// gallery for Noms and Sippin's images
 <template>
   <div class="gallery">
-    <div class="gallery-panel" v-for="photo in photos" :key="photo.id">
-      <!-- supposed ot allow user to see full size image. BROKEN-->
-      <router-link :to="`/noms/${photo.id}`">
-        <img :src="thumbUrl(photo.filename)" />
+    <div class="gallery-panel" v-for="image in images" :key="image.id">
+      <router-link :to="`/images/${image.id}`">
+        <img :src="thumbUrl(image.filename)" />
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import photos from "@/photos.json";
+import images from "@/gallery.json";
 export default {
   name: "Gallery",
   data() {
     return {
-      photos
+      images
     };
   },
-  // this function allows photos ot appear. wrapped in router allows for larger image to be shown
   methods: {
     thumbUrl(filename) {
-      return require(`@/assets/gallery/thumbnails/${filename}`);
+      return require(`../assets/gallery/thumbnails/${filename}`);
     }
   }
 };
 </script>
 
 <style>
-/* creates grid... MAKE SQUARE */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

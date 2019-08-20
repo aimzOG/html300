@@ -1,17 +1,19 @@
 <template>
   <div class="about">
-    <h1 class="display-2 text-center">{{title}}</h1>
+    <Headers v-slot:header>{{title}}</Headers>
     <Accordion />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Headers from "@/components/Headers.vue";
 import Accordion from "@/components/Accordion.vue";
 export default {
   name: "About",
   components: {
-    Accordion: Accordion
+    Accordion,
+    Headers
   },
   data: () => ({
     title: "About the Hangry Bitch."

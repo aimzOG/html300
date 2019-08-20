@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
-    <h1 class="display-2 text-sm-center text-lg-right">
+    <Headers v-slot:header>
       {{titleA}}
       <br />
       {{titleB}}
-    </h1>
+    </Headers>
     <b-carousel
       id="carousel-fade"
       style="text-shadow: 0px 0px 2px #000"
@@ -48,12 +48,16 @@
 
 <script>
 // @ is an alias to /src
+import Headers from "@/components/Headers.vue";
 import homeCutlery from "@/assets/home-cutlery.jpg";
 import homeFood from "@/assets/home-food.jpg";
 import homeDrink from "@/assets/home-drink.jpg";
 
 export default {
   name: "Home",
+  components: {
+    Headers
+  },
   data: () => ({
     titleA: "Hangry",
     titleB: "Bitch.",

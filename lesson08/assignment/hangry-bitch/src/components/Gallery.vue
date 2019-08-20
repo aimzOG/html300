@@ -1,20 +1,20 @@
 <template>
   <div class="gallery">
-    <div class="gallery-panel" v-for="image in images" :key="image.id">
-      <router-link :to="`/images/${image.id}`">
-        <img :src="thumbUrl(image.filename)" />
+    <div class="gallery-panel" v-for=" photo in photos" :key="photo.id">
+      <router-link :to="`/photo/${photo.id}`">
+        <img :src="thumbUrl(photo.filename)" />
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import images from "@/gallery.json";
+import photos from "@/gallery.json";
 export default {
   name: "Gallery",
   data() {
     return {
-      images
+      photos
     };
   },
   methods: {

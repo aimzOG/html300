@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1 class="display-2 text-sm-center text-lg-right">{{title}}</h1>
+    <h1 class="display-2 text-center">{{title}}</h1>
     <Accordion />
   </div>
 </template>

@@ -1,16 +1,16 @@
 <template>
   <div class="lightbox" @click.self="closeLightbox">
-    <img :src="imageUrl(image.filename)" />
+    <img :src="photoURL(photo.filename)" />
     <div class="lightbox-info">
       <div class="lightbox-info-inner">
-        <p v-if="image.title">{{ image.title }}</p>
-        <p v-if="image.location">{{ image.location }}</p>
-        <p v-if="image.photographer">
-          <a rel="nofollow" :href="image.photographer.url">{{ image.photographer.name }}</a>
+        <p v-if="photo.title">{{ photo.title }}</p>
+        <p v-if="photo.location">{{ photo.location }}</p>
+        <p v-if="photo.photographer">
+          <a rel="nofollow" :href="photo.photographer.url">{{ photo.photographer.name }}</a>
         </p>
-        <p v-if="image.source">
+        <p v-if="photo.source">
           via
-          <a rel="nofollow" :href="image.source.url">{{ image.source.name }}</a>
+          <a rel="nofollow" :href="photo.source.url">{{ photo.source.name }}</a>
         </p>
       </div>
     </div>
@@ -18,27 +18,27 @@
 </template>
 
 <script>
-import images from "@/gallery.json";
+import photos from "@/gallery.json";
 export default {
   name: "Image",
   data() {
     return {
-      images
+      photos
     };
   },
   computed: {
-    image() {
-      return this.images.find(image => {
-        return image.id === Number(this.$route.params.id);
+    photo() {
+      return this.photos.find(photo => {
+        return photo.id === Number(this.$route.params.id);
       });
     }
   },
   methods: {
-    imageUrl(filename) {
+    photoURL(filename) {
       return require(`../assets/gallery/${filename}`);
     },
     closeLightbox() {
-      this.$router.push("/");
+      this.$router.push("/noms");
     }
   }
 };

@@ -39,3 +39,9 @@ export default {
   })
 };
 </script>
+
+<style>
+.accordion {
+  padding: 0 5rem;
+}
+</style>

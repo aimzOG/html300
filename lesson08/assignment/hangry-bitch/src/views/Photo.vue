@@ -1,20 +1,20 @@
 <template>
-  <div class="images">
+  <div class="photo">
     <!-- <h1 class="display-2 text-sm-center text-lg-right">{{title}}</h1> -->
     <Gallery />
-    <Photo />
+    <Lightbox />
   </div>
 </template>
 
 <script>
 import Gallery from "@/components/Gallery.vue";
-import Photo from "@/components/Image.vue";
+import Lightbox from "@/components/Lightbox.vue";
 
 export default {
-  name: "Images",
+  name: "Photo",
   components: {
     Gallery,
-    Photo
+    Lightbox
   }
 };
 </script>

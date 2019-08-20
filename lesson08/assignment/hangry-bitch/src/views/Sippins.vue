@@ -1,19 +1,16 @@
 <template>
   <div class="noms">
-    <h1 class="display-2 text-sm-center text-lg-right">{{title}}</h1>
+    <h1 class="display-2 text-center">{{title}}</h1>
     <Gallery />
-    <Image />
   </div>
 </template>
 
 <script>
 import Gallery from "@/components/Gallery.vue";
-import Image from "@/components/Image.vue";
 export default {
   name: "Sippin's",
   components: {
-    Gallery,
-    Image
+    Gallery
   },
   data: () => ({
     title: "Sippin's",

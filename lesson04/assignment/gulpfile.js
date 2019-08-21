@@ -17,6 +17,7 @@ gulp.task('sass', function () {
     // .pipe(minifycss({ compatibility: 'ie8' }))
     .pipe(gulp.dest('css/'))
     .pipe(browserSync.stream());
+
 });
 
 gulp.task('watch', function () {

@@ -1,19 +1,19 @@
 <template>
-  <div class="noms">
-    <h1 class="display-2 text-sm-center text-lg-right">{{title}}</h1>
+  <div>
+    <Headers v-slot:header>{{title}}</Headers>
     <Gallery />
-    <Photo />
   </div>
 </template>
 
 <script>
 import Gallery from "@/components/Gallery.vue";
-import Photo from "@/components/Photo.vue";
+import Headers from "@/components/Headers.vue";
+
 export default {
   name: "Noms",
   components: {
     Gallery,
-    Photo
+    Headers
   },
   data: () => ({
     title: "Noms",
@@ -21,5 +21,3 @@ export default {
   })
 };
 </script>
-
-// Vue grid photo gallery tutorial https://travishorn.com/creating-a-photo-gallery-with-vue-css-grid-3e0a3dd25285

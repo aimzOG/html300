@@ -1,35 +1,60 @@
-// gallery for Noms and Sippin's images
 <template>
   <div class="gallery">
-    <div class="gallery-panel" v-for="photo in photos" :key="photo.id">
-      <!-- supposed ot allow user to see full size image. BROKEN-->
-      <router-link :to="`/noms/${photo.id}`">
-        <img :src="thumbUrl(photo.filename)" />
-      </router-link>
+    <div class="gallery-panel" v-for=" photo in photos" :key="photo.id">
+      <!-- <router-link :to="`/photo/${photo.id}`"> PUT BACK FOR FINAL-->
+      <ImageTag
+        @click.native="() => updateSelected(photo.id)"
+        :border="isSelected(photo.id)"
+        :src="thumbUrl(photo.filename)"
+        :alt="photo.alt"
+        :title="photo.title"
+      />
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
-import photos from "@/photos.json";
+import ImageTag from "@/components/ImageTag.vue";
+import photos from "@/gallery.json";
+
+const mixin = {
+  data() {
+    return {
+      selectedPhotoId: false
+    };
+  },
+  methods: {
+    // tracks and updates id as clicked- if not selected, border. if selected, unboarder.
+    updateSelected: function(id) {
+      this.selectedPhotoId = this.isSelected(id) ? undefined : id;
+    },
+    isSelected: function(id) {
+      return this.selectedPhotoId == id;
+    }
+  }
+};
+
 export default {
   name: "Gallery",
+  components: {
+    ImageTag
+  },
+  mixins: [mixin],
   data() {
     return {
       photos
     };
   },
-  // this function allows photos ot appear. wrapped in router allows for larger image to be shown
   methods: {
     thumbUrl(filename) {
-      return require(`@/assets/gallery/thumbnails/${filename}`);
+      return require(`../assets/gallery/thumbnails/${filename}`);
     }
   }
 };
 </script>
 
 <style>
-/* creates grid... MAKE SQUARE */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));

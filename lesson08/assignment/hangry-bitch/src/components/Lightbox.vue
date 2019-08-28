@@ -1,7 +1,9 @@
 <template>
+  <!-- enlarges selected picture and shows attached info -->
   <div class="lightbox" @click.self="closeLightbox">
-    <img :src="photoUrl(photo.filename)" />
+    <ImageTag :src="photoUrl(photo.filename)" :alt="photo.alt" :title="photo.title" />
     <div class="lightbox-info">
+      <!-- if json holds this data, show when lightbox is activated -->
       <div class="lightbox-info-inner">
         <p v-if="photo.title">{{ photo.title }}</p>
         <p v-if="photo.location">{{ photo.location }}</p>
@@ -18,9 +20,13 @@
 </template>
 
 <script>
-import photos from "@/photos.json";
+import ImageTag from "@/components/ImageTag.vue";
+import photos from "@/gallery.json";
 export default {
-  name: "Photo",
+  name: "Lightbox",
+  components: {
+    ImageTag
+  },
   data() {
     return {
       photos
@@ -35,10 +41,10 @@ export default {
   },
   methods: {
     photoUrl(filename) {
-      return require(`@/assets/gallery/${filename}`);
+      return require(`../assets/gallery/${filename}`);
     },
     closeLightbox() {
-      this.$router.push("/");
+      this.$router.push("/noms");
     }
   }
 };
